@@ -60,80 +60,6 @@ A full-stack MERN application to digitize and manage visitor registrations, pass
 
 ---
 
-## 📁 Project Structure
-
-```
-visitor-pass-system/
-├── backend/
-│   ├── config/
-│   │   └── db.js                  # MongoDB connection
-│   ├── controllers/
-│   │   ├── authController.js      # Login, register, me
-│   │   ├── visitorController.js   # CRUD + approve/reject
-│   │   ├── passController.js      # Issue, verify, revoke, PDF
-│   │   ├── checkLogController.js  # Check-in/out logs
-│   │   └── reportController.js    # Dashboard + export
-│   ├── middleware/
-│   │   ├── auth.js                # JWT protect + authorize
-│   │   ├── errorHandler.js        # Global error handler
-│   │   └── upload.js              # Multer file upload
-│   ├── models/
-│   │   ├── User.js                # Users (admin/security/host/visitor)
-│   │   ├── Visitor.js             # Visitor records
-│   │   ├── Appointment.js         # Scheduled visits
-│   │   ├── Pass.js                # Digital passes + QR
-│   │   └── CheckLog.js            # Entry/exit audit log
-│   ├── routes/
-│   │   ├── auth.js
-│   │   ├── users.js
-│   │   ├── visitors.js
-│   │   ├── appointments.js
-│   │   ├── passes.js
-│   │   ├── checkLogs.js
-│   │   └── reports.js
-│   ├── utils/
-│   │   ├── email.js               # Nodemailer + templates
-│   │   ├── sms.js                 # Twilio SMS
-│   │   ├── qrGenerator.js         # QR code as base64
-│   │   ├── pdfGenerator.js        # PDFKit badge
-│   │   └── seed.js                # Demo data seeder
-│   ├── .env.example
-│   ├── package.json
-│   └── server.js
-│
-└── frontend/
-    ├── public/
-    │   └── index.html
-    └── src/
-        ├── components/
-        │   └── layout/
-        │       └── AppLayout.js   # Sidebar + topbar
-        ├── context/
-        │   └── AuthContext.js     # Auth state + JWT
-        ├── pages/
-        │   ├── Admin/
-        │   │   ├── DashboardPage.js
-        │   │   ├── VisitorsPage.js
-        │   │   ├── PassesPage.js
-        │   │   ├── AppointmentsPage.js
-        │   │   ├── ReportsPage.js
-        │   │   ├── UsersPage.js
-        │   │   └── SettingsPage.js
-        │   ├── Security/
-        │   │   └── CheckInOutPage.js
-        │   ├── Visitor/
-        │   │   └── MyPassPage.js
-        │   ├── LoginPage.js
-        │   ├── VerifyPassPage.js
-        │   └── NotFoundPage.js
-        ├── utils/
-        │   └── api.js             # Axios API layer
-        ├── App.js
-        ├── index.js
-        └── index.css
-```
-
----
 
 ## 📦 Prerequisites
 
@@ -194,7 +120,7 @@ cd frontend && npm run build
 
 ---
 
-## 👤 Demo Accounts
+## 👤 nishu Accounts
 
 After running `npm run seed` in the backend:
 
