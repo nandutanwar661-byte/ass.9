@@ -42,12 +42,8 @@ const corsAllowed = new Set(
 );
 
 app.use(cors({
-  origin(origin, callback) {
-    if (!origin) return callback(null, true);
-    if (corsAllowed.has(origin)) return callback(null, true);
-    return callback(null, false);
-  },
-  credentials: true,
+  origin: true, // Yeh automatic aane waale har request origin ko allow kar dega
+  credentials: true
 }));
 
 // Rate limiting
