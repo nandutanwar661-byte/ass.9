@@ -1,18 +1,12 @@
 import axios from 'axios';
 
 /**
- * Express mounts all routes under /api. If REACT_APP_API_URL is set to the
- * server origin only (e.g. http://localhost:5000), requests must still use /api.
+ * Express mounts all routes under /api.
+ * Connecting directly to the live Render backend instance.
  */
 function resolveApiBaseURL() {
-  const raw = process.env.REACT_APP_API_URL;
-  if (raw == null || String(raw).trim() === '') return '/api';
-  let base = String(raw).trim().replace(/\/+$/, '');
-  if (base === '/api') return '/api';
-  if (/^https?:\/\//i.test(base) && !/\/api$/i.test(base)) {
-    return `${base}/api`;
-  }
-  return base;
+  // 🚀 Direct Render ka URL return kar rahe hain taaki koi galti na ho
+  return 'https://ass-9.onrender.com/api';
 }
 
 const API = axios.create({
