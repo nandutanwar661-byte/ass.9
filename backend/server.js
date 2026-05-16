@@ -33,6 +33,7 @@ app.use(helmet());
 const corsAllowed = new Set(
   [
     process.env.CLIENT_URL,
+    'https://cosmic-meringue-0d2f4a.netlify.app',
     'http://localhost:3000',
     'http://localhost:3001',
     'http://127.0.0.1:3000',
