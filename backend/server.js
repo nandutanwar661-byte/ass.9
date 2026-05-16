@@ -4,10 +4,10 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
-require('dotenv').config();
-const dns = require("dns");
+require('dotenv').config();const dns = require("dns");
 // Change DNS
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
+
 
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
@@ -33,7 +33,6 @@ app.use(helmet());
 const corsAllowed = new Set(
   [
     process.env.CLIENT_URL,
-    'https://cosmic-meringue-0d2f4a.netlify.app',
     'http://localhost:3000',
     'http://localhost:3001',
     'http://127.0.0.1:3000',
@@ -42,8 +41,12 @@ const corsAllowed = new Set(
 );
 
 app.use(cors({
-  origin: true, // Yeh automatic aane waale har request origin ko allow kar dega
-  credentials: true
+  origin(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (corsAllowed.has(origin)) return callback(null, true);
+    return callback(null, false);
+  },
+  credentials: true,
 }));
 
 // Rate limiting
